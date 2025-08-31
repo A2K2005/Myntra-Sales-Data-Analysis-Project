@@ -1,11 +1,13 @@
 # 🛒 Walmart Sales Data Analysis Project
-
 > **A comprehensive end-to-end data analysis solution leveraging SQL and Python to extract actionable business insights from Walmart sales data.**
+
+![Walmart Sales Analysis](https://i.postimg.cc/qNZ7Cdy8/image.png)
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![SQL](https://img.shields.io/badge/SQL-MySQL%20%7C%20PostgreSQL-green.svg)](https://www.mysql.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Complete-brightgreen.svg)]()
+
 
 ---
 
