@@ -136,7 +136,7 @@ GRANT ALL PRIVILEGES ON DATABASE myntra_analysis TO myntra_user;
 ## 📊 Data Pipeline
 
 ### **Phase 1: Data Acquisition**
-- **Source**: [Myntra Sales Dataset](https://www.kaggle.com/najir0123/walmart-10k-sales-datasets) on Kaggle
+- **Source**: [Sales Dataset](https://www.kaggle.com/najir0123/walmart-10k-sales-datasets) on Kaggle
 - **Format**: CSV file with 10,000+ sales records
 - **Storage**: `data/raw/Myntra.csv`
 
