@@ -1,4 +1,4 @@
-# Walmart Data Analysis Project Dependencies
+# Myntra Data Analysis Project Dependencies
 # Core data analysis and manipulation libraries
 pandas>=2.0.0
 numpy>=1.24.0

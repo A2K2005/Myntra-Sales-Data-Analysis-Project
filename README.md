@@ -1,6 +1,6 @@
-# 🛒 Walmart Sales Data Analysis Project
+# 🛒 Myntra Sales Data Analysis Project
 
-> **A comprehensive end-to-end data analysis solution leveraging SQL and Python to extract actionable business insights from Walmart sales data.**
+> **A comprehensive end-to-end data analysis solution leveraging SQL and Python to extract actionable business insights from Myntra sales data.**
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![SQL](https://img.shields.io/badge/SQL-MySQL%20%7C%20PostgreSQL-green.svg)](https://www.mysql.com/)
@@ -27,10 +27,10 @@
 
 ## 🎯 Project Overview
 
-This project demonstrates a complete data analysis workflow using **Python** for data processing and **SQL** for advanced analytics. We analyze Walmart sales data to uncover patterns, trends, and business opportunities through systematic data exploration, cleaning, and complex querying.
+This project demonstrates a complete data analysis workflow using **Python** for data processing and **SQL** for advanced analytics. We analyze Myntra sales data to uncover patterns, trends, and business opportunities through systematic data exploration, cleaning, and complex querying.
 
 ### 🎯 **Project Objectives**
-- **Data Processing**: Clean and prepare Walmart sales data for analysis
+- **Data Processing**: Clean and prepare Myntra sales data for analysis
 - **SQL Analytics**: Perform complex queries across MySQL and PostgreSQL
 - **Business Intelligence**: Extract actionable insights for retail optimization
 - **Technical Skills**: Demonstrate proficiency in data manipulation and SQL querying
@@ -51,10 +51,10 @@ This project demonstrates a complete data analysis workflow using **Python** for
 ## 📁 Project Structure
 
 ```
-Walmart_SQL_Python/
+Myntra_SQL_Python/
 ├── 📊 data/
-│   ├── raw/                    # Original Walmart.csv dataset
-│   └── clean/                  # Processed walmart_clean_data.csv
+│   ├── raw/                    # Original Myntra.csv dataset
+│   └── clean/                  # Processed myntra_clean_data.csv
 ├── 🗄️ sql_queries/
 │   ├── mysql/                  # MySQL analysis queries
 │   └── postgresql/             # PostgreSQL analysis queries
@@ -86,20 +86,20 @@ Walmart_SQL_Python/
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/Walmart_SQL_Python.git
-cd Walmart_SQL_Python
+git clone https://github.com/yourusername/Myntra_SQL_Python.git
+cd Myntra_SQL_Python
 ```
 
 ### **2. Set Up Python Environment**
 ```bash
 # Create virtual environment (recommended)
-python -m venv walmart_env
+python -m venv myntra_env
 
 # Activate environment
 # Windows
-walmart_env\Scripts\activate
+myntra_env\Scripts\activate
 # macOS/Linux
-source walmart_env/bin/activate
+source myntra_env/bin/activate
 ```
 
 ### **3. Install Dependencies**
@@ -112,22 +112,22 @@ source walmart_env/bin/activate
 #### **MySQL Configuration**
 ```sql
 -- Create database
-CREATE DATABASE walmart_analysis;
-USE walmart_analysis;
+CREATE DATABASE myntra_analysis;
+USE myntra_analysis;
 
 -- Create user (optional)
-CREATE USER 'walmart_user'@'localhost' IDENTIFIED BY 'your_password';
-GRANT ALL PRIVILEGES ON walmart_analysis.* TO 'walmart_user'@'localhost';
+CREATE USER 'myntra_user'@'localhost' IDENTIFIED BY 'your_password';
+GRANT ALL PRIVILEGES ON myntra_analysis.* TO 'myntra_user'@'localhost';
 ```
 
 #### **PostgreSQL Configuration**
 ```sql
 -- Create database
-CREATE DATABASE walmart_analysis;
+CREATE DATABASE myntra_analysis;
 
 -- Create user (optional)
-CREATE USER walmart_user WITH PASSWORD 'your_password';
-GRANT ALL PRIVILEGES ON DATABASE walmart_analysis TO walmart_user;
+CREATE USER myntra_user WITH PASSWORD 'your_password';
+GRANT ALL PRIVILEGES ON DATABASE myntra_analysis TO myntra_user;
 ```
 
 ---
@@ -135,15 +135,15 @@ GRANT ALL PRIVILEGES ON DATABASE walmart_analysis TO walmart_user;
 ## 📊 Data Pipeline
 
 ### **Phase 1: Data Acquisition**
-- **Source**: [Walmart Sales Dataset](https://www.kaggle.com/najir0123/walmart-10k-sales-datasets) on Kaggle
+- **Source**: [Myntra Sales Dataset](https://www.kaggle.com/najir0123/walmart-10k-sales-datasets) on Kaggle
 - **Format**: CSV file with 10,000+ sales records
-- **Storage**: `data/raw/Walmart.csv`
+- **Storage**: `data/raw/Myntra.csv`
 
 ### **Phase 2: Data Exploration**
 ```python
 # Load and explore data
 import pandas as pd
-df = pd.read_csv('data/raw/Walmart.csv')
+df = pd.read_csv('data/raw/Myntra.csv')
 
 # Basic exploration
 print(f"Dataset shape: {df.shape}")
@@ -163,8 +163,8 @@ print(f"Missing values:\n{df.isnull().sum()}")
 ```python
 # Load to MySQL
 from sqlalchemy import create_engine
-engine = create_engine('mysql+pymysql://user:pass@localhost/walmart_analysis')
-df.to_sql('walmart', engine, if_exists='replace', index=False)
+engine = create_engine('mysql+pymysql://user:pass@localhost/myntra_analysis')
+df.to_sql('myntra', engine, if_exists='replace', index=False)
 ```
 
 ---
@@ -181,7 +181,7 @@ SELECT
     payment_method,
     COUNT(*) as transaction_count,
     SUM(quantity) as total_quantity
-FROM walmart
+FROM myntra
 GROUP BY branch, payment_method
 ORDER BY branch, transaction_count DESC;
 ```
@@ -194,7 +194,7 @@ SELECT
     COUNT(*) as sales_count,
     SUM(unit_price * quantity) as total_revenue,
     AVG(rating) as avg_rating
-FROM walmart
+FROM myntra
 GROUP BY category
 ORDER BY total_revenue DESC;
 ```
@@ -206,7 +206,7 @@ SELECT
     DAYNAME(STR_TO_DATE(date, '%d/%m/%Y')) as day_name,
     COUNT(*) as transaction_count,
     SUM(unit_price * quantity) as daily_revenue
-FROM walmart
+FROM myntra
 GROUP BY day_name
 ORDER BY daily_revenue DESC;
 ```
@@ -284,7 +284,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🙏 Acknowledgments
 
-- **Data Source**: [Kaggle Walmart Sales Dataset](https://www.kaggle.com/najir0123/walmart-10k-sales-datasets)
+- **Data Source**: [Kaggle Myntra Sales Dataset](https://www.kaggle.com/najir0123/walmart-10k-sales-datasets)
 - **Community**: Data science and SQL communities for inspiration
 - **Tools**: Open-source tools that made this project possible
 

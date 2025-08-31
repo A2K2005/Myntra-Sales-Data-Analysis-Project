@@ -1,25 +1,25 @@
--- Walmart Project Queries
+-- Myntra Project Queries
 
-SELECT * FROM walmart;
+SELECT * FROM myntra;
 
--- DROP TABLE walmart;
+-- DROP TABLE myntra;
 
--- DROP TABLE walmart;
+-- DROP TABLE myntra;
 
 -- 
-SELECT COUNT(*) FROM walmart;
+SELECT COUNT(*) FROM myntra;
 
 SELECT 
 	 payment_method,
 	 COUNT(*)
-FROM walmart
+FROM myntra
 GROUP BY payment_method
 
 SELECT 
 	COUNT(DISTINCT branch) 
-FROM walmart;
+FROM myntra;
 
-SELECT MIN(quantity) FROM walmart;
+SELECT MIN(quantity) FROM myntra;
 
 -- Business Problems
 --Q.1 Find different payment method and number of transactions, number of qty sold
@@ -29,7 +29,7 @@ SELECT
 	 payment_method,
 	 COUNT(*) as no_payments,
 	 SUM(quantity) as no_qty_sold
-FROM walmart
+FROM myntra
 GROUP BY payment_method
 
 
@@ -44,7 +44,7 @@ FROM
 		category,
 		AVG(rating) as avg_rating,
 		RANK() OVER(PARTITION BY branch ORDER BY AVG(rating) DESC) as rank
-	FROM walmart
+	FROM myntra
 	GROUP BY 1, 2
 )
 WHERE rank = 1
@@ -59,7 +59,7 @@ FROM
 		TO_CHAR(TO_DATE(date, 'DD/MM/YY'), 'Day') as day_name,
 		COUNT(*) as no_transactions,
 		RANK() OVER(PARTITION BY branch ORDER BY COUNT(*) DESC) as rank
-	FROM walmart
+	FROM myntra
 	GROUP BY 1, 2
 	)
 WHERE rank = 1
@@ -73,7 +73,7 @@ SELECT
 	 payment_method,
 	 -- COUNT(*) as no_payments,
 	 SUM(quantity) as no_qty_sold
-FROM walmart
+FROM myntra
 GROUP BY payment_method
 
 
@@ -87,7 +87,7 @@ SELECT
 	MIN(rating) as min_rating,
 	MAX(rating) as max_rating,
 	AVG(rating) as avg_rating
-FROM walmart
+FROM myntra
 GROUP BY 1, 2
 
 
@@ -100,7 +100,7 @@ SELECT
 	category,
 	SUM(total) as total_revenue,
 	SUM(total * profit_margin) as profit
-FROM walmart
+FROM myntra
 GROUP BY 1
 
 
@@ -115,7 +115,7 @@ AS
 	payment_method,
 	COUNT(*) as total_trans,
 	RANK() OVER(PARTITION BY branch ORDER BY COUNT(*) DESC) as rank
-FROM walmart
+FROM myntra
 GROUP BY 1, 2
 )
 SELECT *
@@ -135,7 +135,7 @@ CASE
 		ELSE 'Evening'
 	END day_time,
 	COUNT(*)
-FROM walmart
+FROM myntra
 GROUP BY 1, 2
 ORDER BY 1, 3 DESC
 
@@ -147,7 +147,7 @@ ORDER BY 1, 3 DESC
 
 SELECT *,
 EXTRACT(YEAR FROM TO_DATE(date, 'DD/MM/YY')) as formated_date
-FROM walmart
+FROM myntra
 
 -- 2022 sales
 WITH revenue_2022
@@ -156,7 +156,7 @@ AS
 	SELECT 
 		branch,
 		SUM(total) as revenue
-	FROM walmart
+	FROM myntra
 	WHERE EXTRACT(YEAR FROM TO_DATE(date, 'DD/MM/YY')) = 2022 -- psql
 	-- WHERE YEAR(TO_DATE(date, 'DD/MM/YY')) = 2022 -- mysql
 	GROUP BY 1
@@ -169,7 +169,7 @@ AS
 	SELECT 
 		branch,
 		SUM(total) as revenue
-	FROM walmart
+	FROM myntra
 	WHERE EXTRACT(YEAR FROM TO_DATE(date, 'DD/MM/YY')) = 2023
 	GROUP BY 1
 )
