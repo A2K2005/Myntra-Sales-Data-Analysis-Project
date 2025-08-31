@@ -285,7 +285,7 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ## 🙏 Acknowledgments
 
-- **Data Source**: [Kaggle Myntra Sales Dataset](https://www.kaggle.com/najir0123/walmart-10k-sales-datasets)
+- **Data Source**: [Kaggle Sales Dataset](https://www.kaggle.com/najir0123/walmart-10k-sales-datasets)
 - **Community**: Data science and SQL communities for inspiration
 - **Tools**: Open-source tools that made this project possible
 
