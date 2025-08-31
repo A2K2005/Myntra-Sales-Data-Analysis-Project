@@ -1,0 +1,15 @@
+# Walmart Data Analysis Project Dependencies
+# Core data analysis and manipulation libraries
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Database connectivity and ORM
+sqlalchemy>=2.0.0
+pymysql>=1.1.0
+psycopg2-binary>=2.9.0
+
+# Jupyter notebook support (for project.ipynb)
+jupyter>=1.0.0
+ipykernel>=6.0.0
+
+
